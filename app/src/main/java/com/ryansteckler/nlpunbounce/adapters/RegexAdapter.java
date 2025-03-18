@@ -68,7 +68,7 @@ public class RegexAdapter extends ArrayAdapter<String> {
                     list.remove(pos);
 
                     // saves the list
-                    SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce_preferences", Context.MODE_WORLD_READABLE);
+                    SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce_preferences", Context.MODE_PRIVATE);
                     Set<String> set = new HashSet<String>();
                     set.addAll(list);
                     SharedPreferences.Editor editor = prefs.edit();

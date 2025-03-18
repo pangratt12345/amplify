@@ -28,7 +28,7 @@ public class ServicesAdapter extends BaseAdapter {
 
     public ServicesAdapter(Context context, ArrayList<BaseStats> serviceStatList) {
         super(context, R.layout.fragment_service_listitem, serviceStatList, "service");
-        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         mTruncateEnd = !prefs.getBoolean("scroll_item_names", true);
     }
 

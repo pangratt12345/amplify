@@ -490,7 +490,7 @@ public class HomeFragment extends Fragment {
 
         private void handleNoFailure(TextView problemText, LinearLayout nextButton) {
             problemText.setText(getResources().getString(R.string.welcome_banner_problem_none));
-            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
             SettingsHelper.resetToDefaults(prefs);
             nextButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -697,7 +697,7 @@ public class HomeFragment extends Fragment {
         //Global wakelocks.
         //Kick off a refresh
 
-        SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         if (prefs.getBoolean("global_participation", true)) {
             stats.getStatsFromNetwork(c, new Handler() {
             @Override

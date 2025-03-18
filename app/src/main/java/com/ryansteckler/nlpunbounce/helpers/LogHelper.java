@@ -24,7 +24,7 @@ public class LogHelper {
     }
 
     private static String getLogLevel(Context c) {
-        SharedPreferences prefs = c.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = c.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         return prefs.getString("logging_level", "default");
     }
 }

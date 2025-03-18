@@ -36,7 +36,7 @@ public class AlarmsAdapter extends BaseAdapter {
 
     public AlarmsAdapter(Context context, ArrayList<BaseStats> alarmStatList) {
         super(context, R.layout.fragment_alarms_listitem, alarmStatList, "alarm");
-        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         mTruncateEnd = !prefs.getBoolean("scroll_item_names", true);
     }
 

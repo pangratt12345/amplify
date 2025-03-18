@@ -32,7 +32,7 @@ public class WakelocksAdapter extends BaseAdapter {
 
     public WakelocksAdapter(Context context, ArrayList<BaseStats> wakelockStatList) {
         super(context, R.layout.fragment_wakelocks_listitem, wakelockStatList, "wakelock");
-        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         mTruncateEnd = !prefs.getBoolean("scroll_item_names", true);
     }
 

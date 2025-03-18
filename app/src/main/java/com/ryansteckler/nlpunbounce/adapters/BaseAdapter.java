@@ -100,7 +100,7 @@ public abstract class BaseAdapter extends ArrayAdapter {
 
     private void calculateScale(Context context, ArrayList<BaseStats> baseStatList) {
 
-        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
 
         //Get the max and min values for the red-green spectrum of counts
         Iterator<BaseStats> iter = baseStatList.iterator();

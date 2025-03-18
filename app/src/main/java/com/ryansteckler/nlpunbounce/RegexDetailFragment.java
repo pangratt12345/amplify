@@ -96,7 +96,7 @@ public class RegexDetailFragment extends BaseDetailFragment {
         String blockName = mDefaultValue + "$$||$$" + mDefaultSeconds + "$$||$$" + mEnabled;
 
         if (!mTaskerMode) {
-            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
             Set<String> sampleSet = new HashSet<String>();
             Set<String> set = new HashSet<String>(prefs.getStringSet(mDefaultSetName + "_regex_set", sampleSet));
             if (!TextUtils.isEmpty(mDefaultValue)) {
@@ -191,7 +191,7 @@ public class RegexDetailFragment extends BaseDetailFragment {
         TextView description = (TextView) view.findViewById(R.id.textViewDescription);
         description.setText(getDescriptionText(mDefaultValue));
 
-        SharedPreferences prefs = getActivity().getSharedPreferences(RegexDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = getActivity().getSharedPreferences(RegexDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_PRIVATE);
 
         final EditText editSeconds = (EditText) view.findViewById(R.id.editRegexSeconds);
 
@@ -293,7 +293,7 @@ public class RegexDetailFragment extends BaseDetailFragment {
             }
 
             if (!mTaskerMode) {
-                SharedPreferences prefs = getActivity().getSharedPreferences(RegexDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_WORLD_READABLE);
+                SharedPreferences prefs = getActivity().getSharedPreferences(RegexDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_PRIVATE);
                 Set<String> sampleSet = new HashSet<String>();
                 Set<String> set = new HashSet<String>(prefs.getStringSet(mDefaultSetName + "_regex_set", sampleSet));
                 if (!TextUtils.isEmpty(mDefaultValue)) {

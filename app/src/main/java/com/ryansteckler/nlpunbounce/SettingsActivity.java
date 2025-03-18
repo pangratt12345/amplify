@@ -3,6 +3,7 @@ package com.ryansteckler.nlpunbounce;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -60,7 +61,7 @@ public class SettingsActivity extends Activity {
 
             // this is important because although the handler classes that read these settings
             // are in the same package, they are executed in the context of the hooked package
-            getPreferenceManager().setSharedPreferencesMode(MODE_WORLD_READABLE);
+            getPreferenceManager().setSharedPreferencesMode(Context.MODE_PRIVATE);
             addPreferencesFromResource(R.xml.preferences);
 
             final SharedPreferences sharedPref = getPreferenceScreen().getSharedPreferences();

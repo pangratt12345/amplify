@@ -40,7 +40,7 @@ public class LocaleHelper {
     public static int onActivityCreateSetLocale(Activity activity) {
         if (sForceEnglish == -1) {
             // Load from prefs
-            SharedPreferences prefs = activity.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+            SharedPreferences prefs = activity.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
             sForceEnglish = prefs.getBoolean("force_english", false) ? 1 : 0;
         }
 

@@ -83,7 +83,7 @@ public abstract class BaseDetailFragment extends Fragment {
 
         loadStatsFromSource(view);
 
-        SharedPreferences prefs = getActivity().getSharedPreferences(AlarmDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = getActivity().getSharedPreferences(AlarmDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_PRIVATE);
 
         TextView resetButton = (TextView) view.findViewById(R.id.buttonResetStats);
         if (resetButton != null) {

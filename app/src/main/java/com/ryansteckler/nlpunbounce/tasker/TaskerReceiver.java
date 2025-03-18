@@ -43,7 +43,7 @@ public class TaskerReceiver extends BroadcastReceiver {
                     String blockName = name + "$$||$$" + Long.toString(seconds) + "$$||$$" + (enabled ? "enabled" : "disabled");
 
                     //set the prefs appropriately.
-                    SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+                    SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
                     Set<String> sampleSet = new HashSet<String>();
                     Set<String> set = new HashSet<String>(prefs.getStringSet(type + "_regex_set", sampleSet));
                     for (Iterator<String> i = set.iterator(); i.hasNext();) {
@@ -64,7 +64,7 @@ public class TaskerReceiver extends BroadcastReceiver {
                     String name = savedBundle.getString(TaskerActivity.BUNDLE_NAME);
 
                     //set the prefs appropriately.
-                    SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+                    SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
                     String enabledName = type + "_" + name + "_enabled";
                     String secondsName = type + "_" + name + "_seconds";
                     SharedPreferences.Editor editor = prefs.edit();

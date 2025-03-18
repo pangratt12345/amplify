@@ -29,7 +29,7 @@ public class ThemeHelper {
     {
         if (sTheme == -1) {
             // Load from prefs
-            SharedPreferences prefs = activity.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+            SharedPreferences prefs = activity.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
             sTheme = prefs.getString("theme", "default").equals("default") ? THEME_DEFAULT : THEME_DARK;
         }
 

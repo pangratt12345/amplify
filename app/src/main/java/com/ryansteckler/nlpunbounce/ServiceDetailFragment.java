@@ -61,7 +61,7 @@ public class ServiceDetailFragment extends BaseDetailFragment {
         });
 
 
-        SharedPreferences prefs = getActivity().getSharedPreferences(AlarmDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = getActivity().getSharedPreferences(AlarmDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_PRIVATE);
 
         final Switch onOff = (Switch) view.findViewById(R.id.switchStat);
         String blockName = "service_" + mStat.getName() + "_enabled";
@@ -97,7 +97,7 @@ public class ServiceDetailFragment extends BaseDetailFragment {
     protected void updateEnabled(boolean b) {
         String blockName = "service_" + mStat.getName() + "_enabled";
         if (!mTaskerMode) {
-            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean(blockName, b);
             editor.apply();

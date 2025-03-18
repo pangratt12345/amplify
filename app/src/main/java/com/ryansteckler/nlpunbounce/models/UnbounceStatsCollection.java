@@ -640,7 +640,7 @@ public class UnbounceStatsCollection implements Serializable {
 
     private void clearStatFile(Context context, String filename) {
         try {
-            FileOutputStream out = context.openFileOutput(filename, Activity.MODE_WORLD_WRITEABLE | Activity.MODE_WORLD_READABLE);
+            FileOutputStream out = context.openFileOutput(filename, Activity.MODE_PRIVATE | Activity.MODE_PRIVATE);
             out.write(0);
             out.close();
         } catch (IOException ioe) {
@@ -758,7 +758,7 @@ public class UnbounceStatsCollection implements Serializable {
 
     public void pushStatsToNetworkInternal(final Context context) {
         //Are we allowed to?
-        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         mGlobalParticipation = prefs.getBoolean("global_participation", true);
         if (false) {
             //Serialize the collection to JSON
@@ -803,7 +803,7 @@ public class UnbounceStatsCollection implements Serializable {
     public void getStatsFromNetwork(final Context context, final Handler clientHandler) {
         //Push the JSON to the server
         //Are we allowed to?
-        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         if (false) {
             NetworkHelper.getFromServer(URL_STATS, new Handler() {
                 @Override
@@ -840,19 +840,19 @@ public class UnbounceStatsCollection implements Serializable {
     public void createFiles(Context context) {
         try {
             if (!new File(STATS_DIRECTORY + STATS_FILENAME_CURRENT).exists()) {
-                FileOutputStream out = context.openFileOutput(STATS_FILENAME_CURRENT, Activity.MODE_WORLD_WRITEABLE | Activity.MODE_WORLD_READABLE);
+                FileOutputStream out = context.openFileOutput(STATS_FILENAME_CURRENT, Activity.MODE_PRIVATE | Activity.MODE_PRIVATE);
                 out.write(0);
                 out.close();
             }
 
             if (!new File(STATS_DIRECTORY + STATS_FILENAME_GLOBAL).exists()) {
-                FileOutputStream out = context.openFileOutput(STATS_FILENAME_GLOBAL, Activity.MODE_WORLD_WRITEABLE | Activity.MODE_WORLD_READABLE);
+                FileOutputStream out = context.openFileOutput(STATS_FILENAME_GLOBAL, Activity.MODE_PRIVATE | Activity.MODE_PRIVATE);
                 out.write(0);
                 out.close();
             }
 
             if (!new File(STATS_DIRECTORY + STATS_FILENAME_PUSH).exists()) {
-                FileOutputStream out = context.openFileOutput(STATS_FILENAME_PUSH, Activity.MODE_WORLD_WRITEABLE | Activity.MODE_WORLD_READABLE);
+                FileOutputStream out = context.openFileOutput(STATS_FILENAME_PUSH, Activity.MODE_PRIVATE | Activity.MODE_PRIVATE);
                 out.write(0);
                 out.close();
             }
@@ -861,7 +861,7 @@ public class UnbounceStatsCollection implements Serializable {
             e.printStackTrace();
         }
         Log.d("Amplify: ", "Writing creation version");
-        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = context.getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = prefs.edit();
         edit.putString("file_version", Wakelocks.FILE_VERSION);
         edit.apply();

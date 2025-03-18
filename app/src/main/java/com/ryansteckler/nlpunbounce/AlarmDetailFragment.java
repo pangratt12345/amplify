@@ -65,7 +65,7 @@ public class AlarmDetailFragment extends BaseDetailFragment {
 
         description.setText(descriptionText);
 
-        SharedPreferences prefs = getActivity().getSharedPreferences(AlarmDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = getActivity().getSharedPreferences(AlarmDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_PRIVATE);
 
         final EditText edit = (EditText) view.findViewById(R.id.editAlarmSeconds);
 
@@ -134,7 +134,7 @@ public class AlarmDetailFragment extends BaseDetailFragment {
         try {
             long seconds = Long.parseLong(textView.getText().toString());
             if (!mTaskerMode) {
-                SharedPreferences prefs = getActivity().getSharedPreferences(WakelockDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_WORLD_READABLE);
+                SharedPreferences prefs = getActivity().getSharedPreferences(WakelockDetailFragment.class.getPackage().getName() + "_preferences", Context.MODE_PRIVATE);
                 String blockName = "alarm_" + mStat.getName() + "_seconds";
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putLong(blockName, seconds);
@@ -180,7 +180,7 @@ public class AlarmDetailFragment extends BaseDetailFragment {
     protected void updateEnabled(boolean b) {
         String blockName = "alarm_" + mStat.getName() + "_enabled";
         if (!mTaskerMode) {
-            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_WORLD_READABLE);
+            SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce" + "_preferences", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean(blockName, b);
             editor.apply();

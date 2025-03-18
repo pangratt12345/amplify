@@ -75,7 +75,7 @@ public abstract class RegexFragment extends ListFragment implements RegexDetailF
 
     public void reload() {
         //Setup the list adapter
-        SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce_preferences", Context.MODE_WORLD_READABLE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("com.ryansteckler.nlpunbounce_preferences", Context.MODE_PRIVATE);
         Set<String> sampleSet = new HashSet<String>();
         Set<String> set = prefs.getStringSet(String.format(PREF_SET_TEMPLATE, getType()), sampleSet);
         ArrayList<String> list = new ArrayList<String>(set);
